@@ -8,7 +8,14 @@ button.textContent = "grid size";
 body.appendChild(button);
 body.appendChild(container);
 function changeBackgroundColor() {
-    this.style.backgroundColor = "black";
+    let r = Math.random() * 256;
+    let g = Math.random() * 256;
+    let b = Math.random() * 256;
+    this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+}
+
+function opacity() {
+    this.style.opacity = "0.1";
 }
 
 function gridFlex(a) {
