@@ -7,16 +7,6 @@ button.style.marginBottom = "10px";
 button.textContent = "grid size";
 body.appendChild(button);
 body.appendChild(container);
-function changeBackgroundColor() {
-    let r = Math.random() * 256;
-    let g = Math.random() * 256;
-    let b = Math.random() * 256;
-    this.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-}
-
-function opacity() {
-    this.style.opacity = "0.1";
-}
 
 function gridFlex(a) {
     for (let i = 0; i < a; i++) {
@@ -33,7 +23,13 @@ function gridFlex(a) {
     }
     const columns = document.querySelectorAll(".column");
     columns.forEach((hover) => {
-    hover.addEventListener("mouseover",changeBackgroundColor)
+    hover.addEventListener("mouseover", () => {
+        let r = Math.random() * 255;
+        let g = Math.random() * 255;
+        let b = Math.random() * 255;
+        hover.style.opacity = Number(hover.style.opacity) + 0.1;
+        hover.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    })
 });
 }
 gridFlex(16);
