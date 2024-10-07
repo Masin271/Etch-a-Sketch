@@ -10,6 +10,7 @@ body.appendChild(container);
 function changeBackgroundColor() {
     this.style.backgroundColor = "black";
 }
+
 function gridFlex(a) {
     for (let i = 0; i < a; i++) {
         let row = document.createElement("div");
@@ -23,12 +24,25 @@ function gridFlex(a) {
             }
         container.appendChild(row);
     }
-    const hovers = document.querySelectorAll(".hover");
-    hovers.forEach((hover) => {
+    const columns = document.querySelectorAll(".column");
+    columns.forEach((hover) => {
     hover.addEventListener("mouseover",changeBackgroundColor)
 });
 }
+gridFlex(16);
+function antiGridFlex() {
+    let clears = document.querySelectorAll(".hover");
+    clears.forEach((clear) => {
+        clear.remove();
+    });
+}
 button.addEventListener("click", () =>{
+    antiGridFlex();
     let a = prompt("grid size");
-    gridFlex(a);
+    if (a > 100) {
+        gridFlex(100);
+    }
+    else {
+        gridFlex(a);
+    }
 });
